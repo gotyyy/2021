@@ -1,0 +1,481 @@
+## 周学习总结  
+<!-- TOC -->
+
+- [周学习总结](#周学习总结)
+  - [`第1周学习计划`](#第1周学习计划)
+  - [`第1周学习总结`](#第1周学习总结)
+    - [一、运行残差网络并加入复卷积层](#一运行残差网络并加入复卷积层)
+    - [二、阅读STFnets相关论文](#二阅读stfnets相关论文)
+    - [三、下周总结](#三下周总结)
+  - [`第2周学习总结`](#第2周学习总结)
+    - [一、阅读论文An Automatic Modulation Recognition Method with Low Parameter Estimation Dependence Based on Spatial Transformer Networks](#一阅读论文an-automatic-modulation-recognition-method-with-low-parameter-estimation-dependence-based-on-spatial-transformer-networks)
+    - [二、STN代码](#二stn代码)
+    - [三、学习双向LSTM](#三学习双向lstm)
+    - [四、下周总结](#四下周总结)
+  - [`第3周学习总结`](#第3周学习总结)
+    - [一、STN代码](#一stn代码)
+    - [二、Signal Parameterized Estimation Network](#二signal-parameterized-estimation-network)
+    - [三、下周计划](#三下周计划)
+  - [`第4周学习总结`](#第4周学习总结)
+    - [一、整理数据](#一整理数据)
+    - [二、训练STN网络](#二训练stn网络)
+    - [三、学习可变性卷积网络](#三学习可变性卷积网络)
+    - [四、下周计划](#四下周计划)
+  - [`第5周学习总结`](#第5周学习总结)
+    - [一、用完整2016数据集训练网络](#一用完整2016数据集训练网络)
+    - [二、学习新的注意力](#二学习新的注意力)
+    - [三、下周计划](#三下周计划-1)
+  - [`第6周学习总结`](#第6周学习总结)
+    - [一、（DA）加入channel attention模块（CAM）](#一da加入channel-attention模块cam)
+    - [二、（DA）加入Position Attention模块（PAM）](#二da加入position-attention模块pam)
+    - [三、（CBAM）利用池化操作实现channel/Spatial注意力](#三cbam利用池化操作实现channelspatial注意力)
+    - [四、（SE）利用Squeeze-and-Excitation实现注意力](#四se利用squeeze-and-excitation实现注意力)
+    - [五、classifier网络](#五classifier网络)
+    - [六、下周计划](#六下周计划)
+  - [`第7周学习总结`](#第7周学习总结)
+    - [一、CAM结构](#一cam结构)
+    - [二、多个注意力](#二多个注意力)
+    - [三、可视化](#三可视化)
+    - [四、下周计划](#四下周计划-1)
+  - [`第8周学习总结`](#第8周学习总结)
+    - [一、解决RTN可视化问题](#一解决rtn可视化问题)
+    - [二、尝试加入theta_3,theta_4](#二尝试加入theta_3theta_4)
+    - [三、卷积核可视化](#三卷积核可视化)
+    - [四、总结小论文方向](#四总结小论文方向)
+    - [五、下周计划](#五下周计划)
+  - [`第9周学习总结`](#第9周学习总结)
+    - [一、写小论文](#一写小论文)
+    - [二、完善实验](#二完善实验)
+    - [三、下周计划](#三下周计划-2)
+  - [`第10周学习总结`](#第10周学习总结)
+    - [一、修改论文，完善图片](#一修改论文完善图片)
+    - [二、利用PCA和t-SNE进一步可视化](#二利用pca和t-sne进一步可视化)
+    - [三、对所有网络重新训练](#三对所有网络重新训练)
+    - [四、下周计划](#四下周计划-2)
+  - [`第11周学习总结`](#第11周学习总结)
+    - [一、完成小论文撰写；](#一完成小论文撰写)
+    - [二、整理继续的研究方向](#二整理继续的研究方向)
+    - [三、下周计划](#三下周计划-3)
+  - [`第12周学习总结`](#第12周学习总结)
+    - [一、研读论文， 学习内卷网络](#一研读论文-学习内卷网络)
+    - [二、学习Involution代码](#二学习involution代码)
+    - [三、下周计划](#三下周计划-4)
+  - [`第13周学习总结`](#第13周学习总结)
+    - [一、研读论文Visualizing Deep Learning-based Radio Modulation Classifier](#一研读论文visualizing-deep-learning-based-radio-modulation-classifier)
+    - [二、研读论文Data Augmentation for Deep Learning-based Radio Modulation Classification](#二研读论文data-augmentation-for-deep-learning-based-radio-modulation-classification)
+    - [三、生成星座图访问像素点](#三生成星座图访问像素点)
+    - [四、下载学习Latex的使用](#四下载学习latex的使用)
+    - [五、下周计划](#五下周计划-1)
+  - [`第14周学习总结`](#第14周学习总结)
+    - [一、研读论文Automatic Modulation Classification Using Contrastive Fully Convolutional Network](#一研读论文automatic-modulation-classification-using-contrastive-fully-convolutional-network)
+    - [二、学习《PySDR:A Guide to SDR and DSP using Python》](#二学习pysdra-guide-to-sdr-and-dsp-using-python)
+    - [三、星座图](#三星座图)
+    - [四、下周计划](#四下周计划-3)
+  - [`第15周学习总结`](#第15周学习总结)
+    - [一、学习Class Activation Mapping(CAM),grad-CAM](#一学习class-activation-mappingcamgrad-cam)
+    - [二、研读论文《Anomaly Detection Using Autoencoders with Nonlinear Dimensionality Reduction》，学习Aotoencoder](#二研读论文anomaly-detection-using-autoencoders-with-nonlinear-dimensionality-reduction学习aotoencoder)
+    - [三、再次尝试AMBER方法](#三再次尝试amber方法)
+    - [四、研究方向](#四研究方向)
+    - [五、下周计划](#五下周计划-2)
+
+<!-- /TOC -->
+###   `第1周学习计划`   
++ 在已进行的复神经卷积网络结构改善空间转移网络部分代码；   
++ 在残差网络中加入复卷积层，对比研究调制类型识别的性能；
++ 研究其他注意力机制（mixed attention,channel attention和spatial attention）的运用。
+
+###   `第1周学习总结`   
+#### 一、运行残差网络并加入复卷积层  
+1. 残差网络主要由多个residual stack基本单元堆叠组成，每个residual stack又由数个residual unit最小单元组成。实验主要在2个residual stack基础上，改变各个参数，如卷积核大小，个数，BN,Zeropadding等以及加入复卷积层进行了14个网络的训练。     
+2. 结论：（1）加入复卷积层的网络比同种没有复卷积层的网络参数规模要小，训练时间短，且准确率高；（2）卷积核个数不是越多越好；（3)BN的加入有助于网络训练的稳定
+3. 目前得到效果最好的网络Overall acc:0.66727；Acc(0dB):0.8997；-4dB以上的准确率都打到80%以上；Acc(18dB):0.9310
+
+#### 二、阅读STFnets相关论文     
+利用短时傅里叶变换在时频域学习到和物理学如惯性，无线信号传播或振荡的自然频率等更相关的特征，目前进行多种输入：移动传感，WIFI，超声波和可见光的效果比传统网络好。      
+
+#### 三、下周总结     
++ 空间转移网络的改善（重点）；   
++ 研究网络层具体是如何解决/减弱某些无线电传播特性的。        
+
+
+###   `第2周学习总结`   
+#### 一、阅读论文[An Automatic Modulation Recognition Method with Low Parameter Estimation Dependence Based on Spatial Transformer Networks](https://www.mdpi.com/2076-3417/9/5/1010/htm)    
+1. 基于注意力模型设计信号空间转换模块（SSTM）来减少信号接收和处理过程中对分类性能带来的错误。
+2. 信号处理方法：（1）I/Q；（2）A/P两种转换
+3. SSTM和通用STN一样包含3个模块：（1）Signal Parameterized Estimation Network；（2)Signal Grid Sampling；（3）Sampler;   
+   其中，  
+   （1）网络使用双向LSTM 网络，输出具有8 各参数的theta；  
+   （2）利用转换T(theta)来normalize信号，包括2部分：与time drifting和sample rate offset对信号带来的变化类似的affine transform(A_theta)；和频率相位弥补的转换(R_theta)。   
+
+#### 二、STN代码   
+1. 将I/Q信号(N,2)转换为A/P(N,2)，本周读的论文中提到：用具有(2,8)接收域的M个卷积核的卷积层来增强feature map,输出的转换信号为(N,M,2)。  
+2. STN中加入R_theta，在初始化权重get_initial_weights时还没弄懂加入2个参数的具体格式；
+
+#### 三、学习双向LSTM    
+
+#### 四、下周总结   
++ STN中加入R_theta转换；   
++ 尝试STN中模块（1）使用不同网络的表现，如简单卷积层和双向LSTM等；
+
+
+###   `第3周学习总结`   
+#### 一、STN代码
+signal grid sampling 中加入频率和相位补偿的转换R_theta：n$\times$theta3+theta4，见[代码](https://github.com/DeepSec-BJTU/GroupWorks/blob/master/2019_YangYueyi/Attention/rtn_2021.ipynb)，其中对于n，理解为对于第i通道的数据n取i。   
+遇到的问题：  
+（1）def get_initial_weights()函数中theta3和theta4如何初始化不确定；   
+（2）def _compensate()的编写是否正确，输出张量的格式；      
+
+#### 二、Signal Parameterized Estimation Network   
+使用双向LSTM网络；   
+
+#### 三、下周计划   
++ 修改代码现有的问题；  
++ 训练完整网络；   
++ 读论文。 
+
+
+###   `第4周学习总结`   
+#### 一、整理数据    
+将难以分辨的调制类型：QPSK,8PSK,QAM16,QAM64从原数据集中去除，留下7种调制类进行接下来的实验；     
+
+#### 二、训练STN网络    
+1. 只实现消除时间漂移，符号速率转换，样本率偏移的网络训练，即6个参数的加入。locnet采用两层LSTM的结构，进行多次超参数调整训练，得到最好的结果为Overall acc:0.615308；Acc(-6dB):0.46253；Acc(0dB):0.83451；Acc(18dB):0.95359。   
+2. 将I/Q数据转换为A/P格式，作为网络的输入重新训练；结果：训练结果有提高，Overall acc:0.641239；Acc(-6dB):0.50786；Acc(0dB):0.89941；Acc(18dB):0.9714197。  
+3. 将A/P数据先用一层实数卷积层加强特征，再输入STN；结果：此时通道数是卷积核个数，和前面的实验（通道数为1）相比，低SNR性能有提升，Overall acc:0.63742；Acc(-6dB):0.55812；Acc(0dB):0.89972；Acc(18dB):0.96097。     
+4. STN加入频率偏移，相位偏移补偿的部分，即加入额外两个参数；  
+   （目前网络无误，但是训练很容易出现OOM，可能代码需要改善。）   
+
+#### 三、学习可变性卷积网络    
+
+#### 四、下周计划   
++ 修改代码；   
++ 用完整数据集训练网络；  
++ 尝试其他网络。    
+
+
+###   `第5周学习总结`   
+#### 一、用完整2016数据集训练网络       
+结论：     
+（1）相同的网络训练完整数据集的整体准确率和部分数据集相比下降两个点。这符合高阶调制信号难以识别的事实；      
+（2）增加后面分类网络的卷积核个数，分类效果会提高；        
+（3）在后面分类网络卷积层改为复卷积，分类准确度有提高；        
+（4）加入STN会使识别准确度有所提升，但是效果不明显，和timothy实现的rtn基本吻合；         
+
+#### 二、学习新的注意力        
+最近许多工作提出使用Channel Attention或Spatial Attention，或两者结合起来提高神经网络的性能。这些Attention机制通过建立Channel之间的依赖关系或加权空间注意Mask有能力改善由标准CNN生成的特征表示。学习注意力权重背后是让网络有能力学习关注哪里，并进一步关注目标对象。        
+
+1. 现在实现的RTN属于注意力的一种，假设输入为（H,W,C），空间注意力即对输入的（H,W）维实现注意力权重的分配。        
+注意力可以分为：位置注意力，通道注意力和混合注意力。         
+其中：        
+(1) （spatial attention)**位置注意力**模块通过所有位置处的特征的加权和来选择性地聚合每个位置的特征。无论距离如何，类似的特征都将彼此相关。focus on where is an informative part       
+(2) (channel attention)**通道注意力**模块通过整合所有通道映射之间的相关特征来选择性地强调存在相互依赖的通道映射。focus on what feature map is meaningful           
+(3) (mixed attention)**混合注意力**将两个注意模块的输出相加以进一步改进特征表示，这有助于更精确的分割结果。              
+参考[论文](https://arxiv.org/abs/1809.02983)提出的Dual Attention Network。          
+
+2. 此外还有[论文](https://arxiv.org/abs/2010.03045)提出的Triplet Attention，通过旋转操作和残差变换建立维度间的依存关系，并以可忽略的计算开销对通道和空间信息进行编码。该方法既简单又有效，并且可以轻松地插入经典Backbone中。               
+
+3. 在现有stn 注意力的基础上考虑如何加入channel注意力，并将二者融合。           
+
+#### 三、下周计划        
++ 学习新的注意力的具体实现；         
++ 验证新网络在信号识别领域是否可行。  
+
+
+###   `第6周学习总结`   
+#### 一、（DA）加入channel attention模块（CAM）   
+> 探索信道的关系，可以通过（1）全局池化或（2）编码层来实现，以及这一部分使用的方法。    
+1. 这里先参考Dual Attention Network（DA)中的channel attention的方法，利用对应位置的空间信息来对信道相关性进行建模。利用self-attention机制捕捉任意两个channel maps之间的信道相关性，然后用所有channel maps的加权和来更新每一个channel map。       
+   + 探究CAM嵌入原网络的不同位置：（1）RTN中间（2）RTN之后级联（3）RTN并联；      
+2. 为了使CAM更好地集成到网络中，实现特征的融合，注意力模块输出经过一个卷积层Conv+BN+Dropout，再进行逐元素的加和；     
+   + 探究Conv尺寸：（1）个数（2）kernel_size大小；       
+3. 结论：目前性能最好的是在RTN之后级联CAM模块，并经过Conv(20@(1,1))+Dropout，再与CAM输入进行逐元素的加和的网络。Overall acc:0.671455；Acc(-6dB):0.69447；Acc(0dB):0.924795；Acc(18dB):0.97186；准确率在所有snr下都有提升。     
+
+#### 二、（DA）加入Position Attention模块（PAM）    
+> 参考Dual Attention Network      
+1. 探究PAM嵌入网络的位置；    
+2. PAM中使用卷积层的大小；   
+3. 目前运行的网络还没有可以提升网络性能的。     
+
+#### 三、（CBAM）利用池化操作实现channel/Spatial注意力     
+> 参考Convolutional Block Attention Modul（CBAM)    
+1. 探究CBAM模块位置的影响；
+   + 结论：直接级联在RTN后，再直接接classifier的结构对准确率有提升，但是不明显，不如第一部分的方法。但不忽略模块内部使用到的Conv或Dense结构大小对特征表示的影响。
+
+#### 四、（SE）利用Squeeze-and-Excitation实现注意力    
+global average pooling实现squeeze，两层全连接层实现excitation获得权重，最后和原特征加权。    
+1. 只进行了SE级连在RTN后面的实验，     
+   + 结论：与不加SE模块的网络相比，准确率有提高，但弱于第一部分的方法。     
+
+
+#### 五、classifier网络    
+[论文](https://ieeexplore.ieee.org/document/9023491/references#references)使用的简单卷积网络的结构对处理相位偏移的数据有一定效果。  
+
+#### 六、下周计划    
++ 探究不同注意力内部结构对网络性能的影响；   
++ 学习resblock和denseblock结构，对已有网络进行优化；    
++ 多个注意力对网络的影响。   
+
+
+###   `第7周学习总结`   
+#### 一、CAM结构     
+1. 为了更好地嵌入CA模块，会在后面接卷积层，上周运行了加入了一层Conv1(20@(1,1))的模型，本周再加入一层Conv2(20@(1,1))，并从filters，kernel_size改变参数优化模型。      
+2. 再加入一层卷积层的理念：可以减小Conv1的通道数，利用(1,1)卷积核实现bottleneck类似的结构，达到降低特征维度，减小参数数量，同时又能融合各个通道的特征，可能更有效提取特征。   
+
+
+#### 二、多个注意力     
+1. 原理上，考虑多个注意力的原因：单个Attention Module只修正特征一次，如果恰好这次的修正是不恰当的，也就是注意力发挥的作用是负面的，那后续的特征就没有得到再次修正的机会了，那这样的结果肯定也是不如人意。     
+2. 实验了两个相同结构CAM级联的网络，和一个CAM的网络相比
+
+
+#### 三、可视化    
+1. 11种调制类型的IQ，AP形式可视化。    
+   （1）目前使用的转化为AP形式的数据（data_AP）没有另外再经过归一化，使用MinMaxScaler方法归一化后得到数据（data_AP1）；使用Timothy论文中计算AP数据的方式 得到数据（data_AP2）；     
+   （2）对这三种数据集可视化；    
+   （3）利用后面两种数据集分别训练相同的网络，实验结果不及（data_AP）的结果。
+2. 网络层输出的特征可视化（主要集中于（1）RTN前（2）RTN后（3）CAM后（4）classifier的卷积层输出）；    
+   （1）RTN输出结构为（2,128,C），对所有C个通道可视化后发现，其中一维的数据为0（待研究RTN网络的代码）或者考虑后面的网络是否可以缩减为一维的；    
+   （2）随着网络的深度增加，发现滤波器提取到的特征越来越稀疏，有的通道0输出，说明构建的网络是冗余的，可以减小尺寸得到更lighter的网络。    
+3. 卷积核的可视化：通过输入空间中的梯度上升来完成。过程：我们要定义一个损失函数，这个损失函数将用于最大化某个指定滤波器的激活值。以该函数为优化目标优化后，后我们将使用随机梯度下降来调整输入图像的值，以便最大化该激活值。
+（可视化图像见[这里](https://github.com/gotyyy/2021/blob/master/visual.rar)）       
+
+#### 四、下周计划    
++ 解决上周存在的RTN输出可视化问题；    
++ 优化网络；
++ 总结小论文方向和理论基础的内容。    
+
+
+###   `第8周学习总结`   
+#### 一、解决RTN可视化问题     
+1. 修改代码，并重新训练数据data_AP，训练结果和原先相比有提升，Overall acc:0.674466；Acc(-6dB):0.686327；Acc(0dB):0.934475；Acc(18dB):0.975597。    
+2. 可视化RTN后输出的特征图，显示两个维度都有数据。 
+3. 重新用4种数据集训练修改后的网络。   
+
+#### 二、尝试加入theta_3,theta_4    
+代码有待改善     
+
+#### 三、卷积核可视化    
+参考[keras-vis](https://github.com/raghakot/keras-vis)
+
+#### 四、总结小论文方向    
+1. 构建的模型能够在现有分类器的基础上提高调制识别准确率，尤其在低信噪比下；     
+2. 结合RTN模块，对受到噪声和干扰的信号进行初步处理，得到相对标准的信号数据；      
+3. 结合注意力机制中的通道注意力模块，增强通道与通道之间特征的相关性，加强网络对信号特征特定的识别能力，在整体上提高识别准确率；       
+4. 实现网络的轻量化，在尽可能少的以准确率降低的代价下，减小网络规模和计算量，提高训练效率（滤波器的冗余）。     
+
+#### 五、下周计划    
++ 整理论文文字内容；   
++ 优化网络。
+
+###   `第9周学习总结`   
+#### 一、写小论文     
+
+#### 二、完善实验
+
+#### 三、下周计划    
++ 完成小论文；   
++ 完善图片，可视化；
++ 多次重复网络的训练。
+
+
+###   `第10周学习总结`   
+#### 一、修改论文，完善图片   
+1. 绘制对每个调制类型在各个信噪比下的准确率图；        
+2. 题目备选：A Dual Attention Mechanism for Blind Automatic Modulation Classificaiton    
+
+#### 二、利用PCA和t-SNE进一步可视化        
+1.先利用PCA对网络某一层的输出特征降维；   
+2.再利用t-SNE表达点与点之间的相似度，进一步观察每个调制类型之间数据的相似度。     
+
+#### 三、对所有网络重新训练    
+每个网络重新训练结果和第一次不完全相似，但是proposed的方法依旧是所有网络中准确率较好的。   
+考虑是否应当对每个网络训练多次，然后去均值或其他算数值。      
+
+#### 四、下周计划       
++ 解决上周多次训练问题；   
++ 论文检查修改；         
++ 开始星座图方面的研究。
+
+
+###   `第11周学习总结`   
+#### 一、完成小论文撰写；    
+
+#### 二、整理继续的研究方向    
+1. 特征选择：AMBER;     
+2. 结合内卷网络Involution的应用；   
+3. 对IQ时序数据采用另一种卷积操作；
+4. 其他时频图，包括星座图的研究。    
+
+#### 三、下周计划   
++ 学习内卷网络；   
++ 内卷网络嵌入网络并训练验证可行性。     
+
+
+###   `第12周学习总结`   
+#### 一、研读[论文](https://arxiv.org/abs/2103.06255)， 学习内卷网络               
+1. 贡献：   
+(1)作者重新思考卷积与空间和通道范围有关的内在原理。这一思考促使作者提出使用其他具有辨别能力和表达能力的潜在算子作为视觉识别的替代，突破了卷积现有的归纳偏见；   
+(2)将把Self-Attention融入视觉表征的学习过程。在此背景下，关系建模中对像素对的组合要求受到了挑战。此外，统一了Self-Attention和卷积；     
+(3)基于involution构建的模型进行了广泛的实验。    
+
+2. 卷积核具有2个显著的特性Spatial-agnostic和Channel-specific。    
+   局限：   
+   （1）一方面，尽管Spatial-Agnostic（与空间无关）和Spatial-Compact（空间紧凑）的性质在提高效率和解释平移不变性等价方面有意义，但它剥夺了卷积核适应不同空间位置的不同视觉模式的能力。此外，局部性限制了卷积的感受野，对小目标或者模糊图像构成了挑战。     
+    （2）另一方面，众所周知，卷积核内部的通道间冗余在许多经典深度神经网络中都很突出，这使得卷积核对于不同通道的灵活性受到限制。
+
+
+3. Involution具有对称反向特性，即Spatial-Specific和Channel-Agnostic。    
+（1）具体地说， 核在空间范围上是不同的，但在通道上是共享的。   
+（2）通过在通道维数上共享 核来减少核的冗余。  
+4. Self-Attention：很多任务为了捕获特征的长期依赖关系提出使用Transformer来进行建模。在这些研究中，纯粹的Self-Attention可以被用来构建具有良好性能的独立模型。
+   + 本文将揭示Self-Attention是通过一个复杂的关于核结构的公式来对邻近像素之间的关系进行建模，相比之下，本文所采用的内卷核是根据单个像素生成的。Self-attention也是involution的一种实例化。    
+
+5. 结论：   
+   （1）involution比convolution更轻量更高效，形式上比self-attention更加简洁，可以用在各种视觉任务的模型上取得精度和效率的双重提升。    
+   （2）通过involution的结构设计，我们能够以统一的视角来理解经典的卷积操作和近来流行的自注意力操作。
+
+
+#### 二、学习Involution代码   
+
+#### 三、下周计划    
++ 只训练目前网络难以识别的调制类型，思考难以识别的原因；   
++ 学习独立自注意力相关研究；   
++ 尝试将内卷积结构应用在AMC任务中。   
+
+
+###   `第13周学习总结`   
+#### 一、研读论文[Visualizing Deep Learning-based Radio Modulation Classifier](https://arxiv.org/pdf/2005.02175v2.pdf)    
++ 贡献：
+ 1. 为不同的基于深度学习的无线电调制分类器提供了一个基于类激活向量的可视化结构。类激活向量的每个元素值代表相应无线电信号采样点在调制分类中的重要性,权值越大，说明对分类结果越重要，表现在星座图上样本点的颜色越红。通过引入激活阈值，连接那些对应元素值大于阈值的连续样本点来进一步可视化时域无线电特征。      
+ 2. 可视化基于 CNN (LeNet和ResNet) 和基于 LSTM 的分类器为相同的调制类别提取相似的无线电特征。基于 CNN 的分类器捕获从一个调制参考点到另一个调制参考点的无线电信号转换,基于 LSTM 的分类器只处理A/P格式的无线电信号，并专注于那些靠近调制参考点的样本点，这类似于人类专家的知识。   
+ 3. 通过基于 ResNet 的分类器进一步评估具有较少样本点的无线电信号。我们直观地说明了基于深度学习的分类器提取的无线电特征在很大程度上取决于无线电信号携带的内容，并且较短的无线电样本可能导致错误分类。   
+
++ 数据集：RadioML2016.10a    
+  
++ 结论：
+1. 可视化后不同调制类型的差异性更大了；   
+2. 基于CNN的分类器对输入格式不敏感，对I/Q和A/P捕捉到相同的特征；   
+3. A/P输入时，除了基于 LSTM 的分类器连接的无线电采样点较少之外，所有三个分类器都为不同的调制类别捕获了相似的无线电特征；  
+4. 基于CNN的：I/Q的权重大于A/P的权重，即更多相连的样本点，I/Q形式更适合作为基于CNN的输入；   
+
++ 思考：本篇文章将不同的样本点的重要性用颜色表现在星座图中，并且将被判断为重要的点（大于激活阈值）的连续的两个样本点用先连接。具有这种特点的图像是否可以作为图像卷积网络的一中输入，进一步识别调制类型。
+
+#### 二、研读论文[Data Augmentation for Deep Learning-based Radio Modulation Classification](https://arxiv.org/pdf/1912.03026v1.pdf)    
+数据增强可以提高不变性，特别是对于无线电数据，数据增强和图像分类领域的变换类似。   
++ 3种数据增强的方式   
+  A. 旋转（不会丢失特征）   
+  B. 翻转 （生成2个新的调制符号）  
+  C. 高斯噪声
++ 问题：那种数据增强的方法有利于调制识别。   
++ 数据集：RadioML2016.10a    
++ 网络：LSTM    
++ 3个可以进行数据增强的阶段：训练阶段，测试阶段，训练-测试阶段  
+  
++ 结论：    
+  1. 在完整的数据集上增强：   
+   （1）减小了 QAM16 and QAM64的混淆， 解决了短时观测问题 the short-time observation problem；   
+   （2）低SNR下，LSTM难以识别8PSK and QPSK，旋转增强后有提升；   
+   （3）高SNR下，AM-DSB and WBFM难以识别，因为frequent radio samples without information，旋转和翻转增强比高斯增强提升的多。   
+
+  2. 在部分的数据集上增强：  
+   （1） 从原本的110,000个样本中随机采样部分样本，比如12.5%的训练，110,000个测试，训练结果很差，高SNR下仅有45%。增强之后到原来的50%，即N=4，准确率比同数量原本训练数据的高0.04%-4.03%；  
+   （2）联合数据增强：旋转+翻转，N=6，即75%的原始训练数据集，准确率和100%的原始训练数据效果相似，但是少用了25%的数据；   
+   （3）如果再联合高斯噪声增强，准确率就会下降。    
+
+  3. 在短样本数据集上增强：  
+   （1）把128个点的样本分为两部分，得到440,000个64点的样本；LSTM结构128变为64；    
+    联合增强后，高SNR下提高了1%， 但是减少了参数规模：201.1K to 54.1K，减小了the inference complexity in FLOPs (floating-point operations) ：2.8K to 1.4K，减小了分类反应时间。    
+
++ 思考：可以将联合数据增强的方法应用到后续的研究中，进一步提高准确率，同时减少网络参数规模，复杂度和分类时间。    
+
+#### 三、生成星座图访问像素点   
+疑问：目前STN输入输出数据都是（2，128)格式的数组，是否应该在STN模块内部将数组转换为像（224，224）大小的图像数组上，其中每个像素点的大小根据该位置是否有样本点而不同。    
+
+#### 四、下载学习Latex的使用   
+改论文格式    
+
+#### 五、下周计划   
++ 解决STN和星座图的疑问；   
++ 读相关论文。     
+
+###   `第14周学习总结`   
+#### 一、研读论文[Automatic Modulation Classification Using Contrastive Fully Convolutional Network](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8666725)    
++ **贡献：**  
+  1. 获取不同尺寸的grid constellation matrix (GCM)，获得更有效的信息，移除冗余
+  2. 用contrastive fully convolutional network (CFCN)从GCM中学习高维代表
+  3. 提出a novel loss function with contrastive loss，增加不同调制之间的差别
+
++ **Grid Constellation Matrix（GCM）**      
+  1. normalized by the average power and the regular constellation (RC) is plotted
+  2. plot a grid on the RC with the predetermined size G and construct a K × L matrix named GCM.
+  3. GCM上的每个元素定义为 a ratio:在相关网格中的符号数/符号总数
+  4. 不同调制类型的GCM尺寸不同，由符号序列的magnitude决定，和RC相比，这样就避免引入null information， 可以减小computational complexity。highlighted pixels 说明样本点聚集在这些区域，可以当成sample estimate。
+
++ **CFCN结构（3个模块）**    
+  1. representation module：从GCMs提取高维代表 
+  2. fusion module ：变换为固定维度的特征向量 
+  3. classification module.
+
++ 定义了新的损失函数；   
++ 数据集：从RadioML获取的BPSK, QPSK, 8PSK, 16QAM, 64QAM；   
++ 结论：
+  1. 不同网格尺寸在所有SNR下性能相近；   
+  2. 不同图像格式（对比GCM和RC），GCM更准确，更有效率；    
+  3. 不同网络对比（和LSTM,ResNet,DBN,SCAE,FAN对比），CFCN最好；   
+  4. CFCN对平坦衰落的干扰表现更稳定。   
+
+#### 二、学习《PySDR:A Guide to SDR and DSP using Python》     
+
+#### 三、星座图    
+理解星座图生成像素点和样本点的关系，生成方法，分辨率的影响，并尝试用python生成。   
+
+#### 四、下周计划   
++ 尝试复现上周Visualizing Deep Learning-based Radio Modulation Classifier论文中星座图的生成；     
++ 总结研究方向；   
++ 研读论文。    
+
+
+###   `第15周学习总结`   
+#### 一、学习Class Activation Mapping(CAM),grad-CAM   
+13周论文（Visualizing Deep Learning-based Radio Modulation Classifier）中提到的生成相应权值的方法，并可视化重点区域。  
+1. CAM（不是channel attention model）   
+受NIN结构的启发，将网络最后的全连接层替换成GAP（global average pooling），然后设置最后一层卷积层的输出通道与待分类的类别数相同，这样训练出来的网络，针对每一个类别都有与卷积输出通道数维度相同的一维向量表示权值，通过加权累加可以得到解释性区域，我们称之为Class Activation Mapping。   
+2. grad-CAM：   
+CAM的扩展，更好地可视化解释需要具备：
+   + 类别判别（具备图像中的类别定位能力）  
+   + 高分辨率（解释性输出能包含一些细粒度的细节）      
+
+   针对细粒度可视化的解释，导向反向传播（Guided Backpropagation）和反卷积（Deconvolution）可以在高分辨率的图像中体现一些图像的细节信息。而全局的类别判别也就是感兴趣区域可以使用梯度加权类激活映射图（Grad-CAM）来表示。
+
+3. 一个模型的解释能力和使用其进行可视化以后的可解释依据是有关系的。过去很多工作表示，更加深层或者准确率更加高的模型，往往解释性会很差，但是本文的方法显示了在模型的准确率和可解释性之间是有一个对应关系的。
+
+#### 二、研读论文《Anomaly Detection Using Autoencoders with Nonlinear Dimensionality Reduction》，学习Aotoencoder    
+(在AMBER方法中使用到的去除冗余特征的方法)     
+1. 常应用在基础的数据挖掘任务上：异常检测任务；   
+2. 重点：可以非线性 减小维度；   
+3. 论文中用Autoencoder处理包含异常的数据上，和linear PCA and kernel PCA，denoising autoencoder相比。    
+4. 扩展：denoising autoencoder。学习一组over-complete的基向量代表输入，所以这些基向量可以更好捕捉输入内在的结构和模式。   
+
+#### 三、再次尝试AMBER方法   
+1. 数据：RadioML2016.04C   
+RM：CLDNN(params：2,669,443)   
+Autoencoder：每轮神经元个数递减的2层dense层；optimizer:adadelta；loss function:binary_crossentropy（这里数据没有归一化，Autoencoder论文中使用了归一化，之后的实验待验证）；   
+Final Model：ResNet    
+2. AMBER选定出来的不重要的样本点id,直接从训练和测试样本中都删除，最后输入减小了输入维度的Final Model得到分类结果。  
+3. 服务器后台训练网络（周末服务器未开，还未知结果）   
+
+#### 四、研究方向   
+1. （保留好点，抛弃任何不规范/受噪声影响的差点）
+
+   AMBER利用前沿的AMC模型和autoencoder得到并删除不重要特征（不相关和冗余特征）的方法，和论文Visualizing Deep Learning-based Radio Modulation Classifier中得到新的星座图的理念类似，  
+（1）考虑在这种新地星座图基础上，集中于对重要的样本点进行最后的分类；   
+（2）在AMBER的基础上，将删除不重要特征的新数据即转化为星座图格式，再选择合适的图像分类神经网络进行分类。   
+2. （规范所有点+注意力）：不包括受噪声影响的点       
+（1）纠正差点（RTN)   
+（2）放松reference点的标准（Data Augmentation）   
+
+#### 五、下周计划   
++ 继续AMBER训练，并改进；   
++ 可视化AMBER后的数据；   
++ 准备期中答辩材料。   
+
+
